@@ -1,0 +1,22 @@
+* {
+    list-style-type: none;
+}
+
+header {
+    background-color: skyblue;
+    text-align: center;
+}
+
+#search-container input {
+    line-height: 28px;
+    width: 100%;
+}
+
+#searchBtn {
+    border: none;
+    border-radius: 4px;
+    background-color: aquamarine;
+    height: 28px;
+    width: 100%;
+    margin: 15px auto;
+}
