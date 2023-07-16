@@ -1,23 +1,18 @@
 $(document).ready( function () {
-    // TODO: Write code that prints saved search history
 
-    $("#searchBtn").on("click", function (event) {
-        event.preventDefault();
+    var savedHist = localStorage.getItem("searches");
+    var searches = savedHist ? JSON.parse(savedHist) : [];
+    var histList = $("#history");
+    var myKey = "bbec85a850de09f3c621223d7a8454e1";
 
-        var myKey = "bbec85a850de09f3c621223d7a8454e1";
-
-        var input = $("input").val().replaceAll(" ", "");
-
-        var coordURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +
-                  input + "&limit=1&appid=" + myKey;
-        
+    function getWeather(coordURL) {
         fetch(coordURL, {
             cache: "reload",
         }).then( function (response) {
             return response.json();
         }).then( function (data) {
             var todayURL = "https://api.openweathermap.org/data/2.5/weather?lat=" +
-                      data[0].lat + "&lon=" + data[0].lon + "&units=imperial&appid=" + myKey;
+                    data[0].lat + "&lon=" + data[0].lon + "&units=imperial&appid=" + myKey;
             
             fetch(todayURL).then( function (response) {
                 return response.json();
@@ -155,9 +150,48 @@ $(document).ready( function () {
                             break;                                                                                                                                                                                                                                                                                                                                                                                                                       
                         }
                     });
-
-                // TODO: Write code that adds and saves search history
             })
         })
+
+    }
+
+    for (i = 0; i < searches.length; i++) {
+        var newHist = document.createElement("li");
+        
+        newHist.textContent = searches[i];
+        histList.append(newHist);
+    }
+
+    $("#searchBtn").on("click", function (event) {
+        event.preventDefault();
+        
+        var newHist = document.createElement("li");
+
+        newHist.textContent = $("input").val();
+        histList.append(newHist);
+        searches.push(newHist.textContent);
+
+        localStorage.setItem("searches", JSON.stringify(searches));
+
+
+        var input = $("input").val().replaceAll(" ", "");
+        
+        
+        var coordURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +
+                  input + "&limit=1&appid=" + myKey;
+
+        getWeather(coordURL);
+    })
+
+    histList.on("click", function (event) {
+        event.preventDefault();
+
+        var input = event.target.textContent;
+        
+        
+        var coordURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +
+                  input + "&limit=1&appid=" + myKey;
+        
+        getWeather(coordURL);
     })
 })
