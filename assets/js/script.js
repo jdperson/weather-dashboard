@@ -155,6 +155,9 @@ $(document).ready( function () {
 
     }
 
+    $("#today-container").hide();
+    $("#5day-container").hide();
+
     if (searches.length > 0) {
         for (i = 0; i < searches.length; i++) {
             var newHist = document.createElement("li");
@@ -167,6 +170,9 @@ $(document).ready( function () {
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
         
+        $("#today-container").show();
+        $("#5day-container").show();
+
         if ( !(searches.includes( $("input").val() )) ) {
             var newHist = document.createElement("li");
 
@@ -179,7 +185,7 @@ $(document).ready( function () {
 
         var input = $("input").val().replaceAll(" ", "");
         
-        var coordURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +
+        var coordURL = "https://api.openweathermap.org/geo/1.0/direct?q=" +
                   input + "&limit=1&appid=" + myKey;
 
         getWeather(coordURL);
@@ -188,10 +194,12 @@ $(document).ready( function () {
     histList.on("click", function (event) {
         event.preventDefault();
 
+        $("#today-container").show();
+        $("#5day-container").show();
+
         var input = event.target.textContent;
         
-        
-        var coordURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +
+        var coordURL = "https://api.openweathermap.org/geo/1.0/direct?q=" +
                   input + "&limit=1&appid=" + myKey;
         
         getWeather(coordURL);
