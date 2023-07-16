@@ -6,15 +6,17 @@ header {
     background-image: linear-gradient(to right, rgb(85, 124, 230), rgb(46, 22, 134));
     text-align: center;
     color: white;
+    height: 60px;
 }
 
 #today-container {
     border: 1px solid black;
+    padding-top: 7px;
     padding-left: 7px;
 }
 
 #today-container ul {
-    padding-left: 0;
+    padding-left: 13px;
 }
 
 #search-container {
