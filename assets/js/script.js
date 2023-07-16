@@ -155,27 +155,29 @@ $(document).ready( function () {
 
     }
 
-    for (i = 0; i < searches.length; i++) {
-        var newHist = document.createElement("li");
-        
-        newHist.textContent = searches[i];
-        histList.append(newHist);
+    if (searches.length > 0) {
+        for (i = 0; i < searches.length; i++) {
+            var newHist = document.createElement("li");
+            
+            newHist.textContent = searches[i];
+            histList.append(newHist);
+        }
     }
 
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
         
-        var newHist = document.createElement("li");
+        if ( !(searches.includes( $("input").val() )) ) {
+            var newHist = document.createElement("li");
 
-        newHist.textContent = $("input").val();
-        histList.append(newHist);
-        searches.push(newHist.textContent);
+            newHist.textContent = $("input").val();
+            histList.append(newHist);
+            searches.push(newHist.textContent);
 
-        localStorage.setItem("searches", JSON.stringify(searches));
-
+            localStorage.setItem("searches", JSON.stringify(searches));
+        }
 
         var input = $("input").val().replaceAll(" ", "");
-        
         
         var coordURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +
                   input + "&limit=1&appid=" + myKey;
