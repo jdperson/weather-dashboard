@@ -8,6 +8,15 @@ header {
     color: white;
 }
 
+#today-container {
+    border: 1px solid black;
+    padding-left: 7px;
+}
+
+#today-container ul {
+    padding-left: 0;
+}
+
 #search-container {
     padding-bottom: 0;
     margin-right: 0;
@@ -15,7 +24,9 @@ header {
 
 #search-container input {
     line-height: 36px;
+    font-size: 20px;
     width: 100%;
+    padding-left: 7px;
 }
 
 #searchBtn {
@@ -26,6 +37,11 @@ header {
     line-height: 32px;
     width: 100%;
     margin: 20px auto;
+}
+
+#searchBtn:active {
+    background-color: rgb(87, 148, 219);
+    box-shadow: inset 0 0 10px rgb(49, 85, 125);
 }
 
 #history {
@@ -40,6 +56,15 @@ header {
     line-height: 32px;
     border-radius: 4px;
     background-color: lightgrey;
+}
+
+#history li:hover {
+    background-color: rgb(160, 159, 159);
+    transition: .3s;
+}
+
+#history li:active {
+    box-shadow: inset 0 0 10px rgb(96, 96, 96);
 }
 
 #today-container {

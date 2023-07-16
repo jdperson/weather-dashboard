@@ -19,15 +19,15 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-3 p-3" id="search-container">
+                <div class="col-sm-12 col-lg-3 p-3" id="search-container">
                     <h2>Search for a City:</h2>
-                    <input type="text">
+                    <input type="text" placeholder="San Diego">
                     <button id="searchBtn">Search</button>
                     <ul id="history"></ul>
                 </div>
 
-                <div class="col-sm-12 col-md-6 col-lg-9 p-3 float-end" id="main">
-                    <div class="row border" id="today-container">
+                <div class="col-sm-12 col-lg-7 p-3 float-end" id="main">
+                    <div class="row" id="today-container">
                         <h2 id="today">Location (Today's Date)</h2>
                         <ul>
                             <li id="today-temp">Temp:</li>
@@ -38,8 +38,8 @@
 
                     <div class="row" id="5day-container">
                         <h3>5-Day Forecast</h3>
-                        <div class="d-flex flex-row" id="card-container">
-                            <div class="card col-2 mx-3 my-2">
+                        <div class="d-flex flex-row flex-wrap justify-content-between" id="card-container">
+                            <div class="card col-sm-12 col-md-2 my-2">
                                 <h4 class="5day-date"></h4>
                                 <p class="5day-condition"></p>
                                 <p class="5day-temp"></p>
@@ -47,7 +47,7 @@
                                 <p class="5day-humid"></p>
                             </div>
                             
-                            <div class="card col-2 mx-3 my-2">
+                            <div class="card col-sm-12 col-md-2 my-2">
                                 <h4 class="5day-date"></h4>
                                 <p class="5day-condition"></p>
                                 <p class="5day-temp"></p>
@@ -55,7 +55,7 @@
                                 <p class="5day-humid"></p>
                             </div>
 
-                            <div class="card col-2 mx-3 my-2">
+                            <div class="card col-sm-12 col-md-2 my-2">
                                 <h4 class="5day-date"></h4>
                                 <p class="5day-condition"></p>
                                 <p class="5day-temp"></p>
@@ -63,7 +63,7 @@
                                 <p class="5day-humid"></p>
                             </div>
 
-                            <div class="card col-2 mx-3 my-2">
+                            <div class="card col-sm-12 col-md-2 my-2">
                                 <h4 class="5day-date"></h4>
                                 <p class="5day-condition"></p>
                                 <p class="5day-temp"></p>
@@ -71,7 +71,7 @@
                                 <p class="5day-humid"></p>
                             </div>
 
-                            <div class="card col-2 mx-3 my-2">
+                            <div class="card col-sm-12 col-md-2 my-2">
                                 <h4 class="5day-date"></h4>
                                 <p class="5day-condition"></p>
                                 <p class="5day-temp"></p>
